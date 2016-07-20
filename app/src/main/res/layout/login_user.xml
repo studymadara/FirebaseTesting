@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\nSign in\n"
+                    android:textSize="20dp"
+                    android:id="@+id/nextlogin"
+                    style="@style/TextAppearance.AppCompat"
+                    android:background="@color/cardview_dark_background"
+                    android:backgroundTint="@color/cardview_light_background"
+                    android:backgroundTintMode="multiply"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+
+        </android.support.v7.widget.CardView>
+
+
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"
+            >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:layout_height="match_parent"
+
+                            >
+
+
+                                <EditText
+
+                                    android:id="@+id/loginuserid"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textEmailAddress"
+                                    android:maxLines="1"
+                                    android:hint="Enter the Email ID"
+                                    />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_marginTop="15dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textWebPassword"
+                                    android:maxLines="1"
+                                    android:hint="Enter the Password"
+                                    android:id="@+id/loginuserpassword"
+                                    />
+
+                        </android.support.design.widget.TextInputLayout>
+
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Widget.AppCompat.Button.Colored"
+                                    android:text="Sign In"
+                                    android:background="@color/cardview_dark_background"
+                                    android:backgroundTint="@color/cardview_light_background"
+                                    android:backgroundTintMode="multiply"
+                                    android:id="@+id/signin"
+                                    android:gravity="center"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="22dp" />
+
+                        </RelativeLayout>
+
+                </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

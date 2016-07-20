@@ -1,5 +1,6 @@
 package com.example.wagh.firebasetesting;
 
+import android.content.Intent;
 import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -21,12 +25,12 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText inputEmail, inputPassword;
-    Button btnSignIn;
-    String iEmail,iPass;
+    EditText inputEmail, inputPassword,inputPasswordAgain;
+    Button btnRegister;
+    String iEmail,iPass,iPassAgain;
     //private Firebase mref;
     FirebaseAuth auth;
-
+    TextView login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         inputEmail=(EditText)findViewById(R.id.tv1);
         inputPassword=(EditText)findViewById(R.id.tv2);
-        btnSignIn=(Button)findViewById(R.id.signin);
+        inputPasswordAgain=(EditText)findViewById(R.id.tv3);
+        btnRegister=(Button)findViewById(R.id.Register);
+        login=(TextView)findViewById(R.id.nextlogin);
 
         String Firebase_url="https://fir-test-18c37.firebaseio.com/";
 
@@ -49,12 +55,13 @@ public class MainActivity extends AppCompatActivity {
 
       //  mref=new Firebase(Firebase_url);
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 iEmail=inputEmail.getText().toString().trim();
                 iPass=inputPassword.getText().toString().trim();
+                iPassAgain=inputPasswordAgain.getText().toString().trim();
 
 
                 //this one is actually for the database part but ryt now i m happy with login HAHA :P
@@ -78,24 +85,54 @@ public class MainActivity extends AppCompatActivity {
 
             //the actual function which makes all the work...:)
 
+                if(!iEmail.equals("")) {
 
-                auth.createUserWithEmailAndPassword(iEmail,iPass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (!iPass.equals("") && !iPassAgain.equals("")) {
+                        if (iPass.equals(iPassAgain) && iPass.length() >= 8) {
 
-                        Toast.makeText(MainActivity.this,"DONE",Toast.LENGTH_LONG).show();
+                            auth.createUserWithEmailAndPassword(iEmail, iPass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if(!task.isSuccessful())
-                        {
-                            Toast.makeText(MainActivity.this,"NOT-_-DONE",Toast.LENGTH_LONG).show();
+                                   // Toast.makeText(MainActivity.this, "DONE", Toast.LENGTH_LONG).show();
+
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(MainActivity.this, "NOT-_-DONE", Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+                            });
+
                         }
 
                     }
-                });
+
+                }
+                else
+                {
+                    YoYo.with(Techniques.Shake).duration(2000).playOn(inputPassword);
+                    //YoYo.with(Techniques.Shake).duration(2000).playOn(inputPasswordAgain);
+                    Toast.makeText(MainActivity.this,"Check Password Again && Make sure password greater than 8",Toast.LENGTH_SHORT).show();
+                }
+
+
+                Intent ii=new Intent(MainActivity.this,login_user.class);
+                startActivity(ii);
+                Toast.makeText(MainActivity.this,"Registration Done!!",Toast.LENGTH_SHORT).show();
+
 
             }
         });
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent ii=new Intent(MainActivity.this,login_user.class);
+                startActivity(ii);
+
+            }
+        });
 
     }
 }
