@@ -61,7 +61,7 @@ android:paddingTop="@dimen/activity_vertical_margin"
                 android:background="@color/cardview_dark_background"
                 android:backgroundTint="@color/cardview_light_background"
                 android:backgroundTintMode="multiply"
-                android:id="@+id/userchangepassword"
+                android:id="@+id/userspacechangepassword"
                 android:gravity="center"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
@@ -75,7 +75,7 @@ android:paddingTop="@dimen/activity_vertical_margin"
                 android:background="@color/cardview_dark_background"
                 android:backgroundTint="@color/cardview_light_background"
                 android:backgroundTintMode="multiply"
-                android:id="@+id/userdelete"
+                android:id="@+id/userspacedelete"
                 android:gravity="center"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
@@ -89,11 +89,27 @@ android:paddingTop="@dimen/activity_vertical_margin"
                     android:background="@color/cardview_dark_background"
                     android:backgroundTint="@color/cardview_light_background"
                     android:backgroundTintMode="multiply"
-                    android:id="@+id/useradddata"
+                    android:id="@+id/userspaceadddata"
                     android:gravity="center"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
                      />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:text="Log Out"
+                android:background="@color/cardview_dark_background"
+                android:backgroundTint="@color/cardview_light_background"
+                android:backgroundTintMode="multiply"
+                android:id="@+id/userspacelogout"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                />
+
 
 
 
@@ -112,6 +128,7 @@ android:paddingTop="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:id="@+id/hidemecardview"
             >
 
 
@@ -127,7 +144,7 @@ android:paddingTop="@dimen/activity_vertical_margin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:hint="Enter the null"
+                    android:inputType="textPassword"
                     />
 
             </android.support.design.widget.TextInputLayout>

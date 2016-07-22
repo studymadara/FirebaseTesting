@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".login_user"/>
         <activity android:name=".user_space"/>
+        <activity android:name=".forgetpassword"/>
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,6 +24,7 @@ public class login_user extends AppCompatActivity {
     Button Login;
     String loginuser,loginpass;
     FirebaseAuth fbloginuser;
+    TextView forgetpassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class login_user extends AppCompatActivity {
         iLoginid=(EditText)findViewById(R.id.loginuserid);
         iPassword=(EditText)findViewById(R.id.loginuserpassword);
         Login=(Button)findViewById(R.id.signin);
+        forgetpassword=(TextView)findViewById(R.id.loginforgetpassword);
 
         fbloginuser=FirebaseAuth.getInstance();
 
@@ -71,6 +74,16 @@ public class login_user extends AppCompatActivity {
 
 
 
+            }
+        });
+
+        forgetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent forget = new Intent(login_user.this,forgetpassword.class);
+
+                startActivity(forget);
             }
         });
 
