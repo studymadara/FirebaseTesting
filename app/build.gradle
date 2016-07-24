@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.wagh.firebasetesting"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -37,6 +37,12 @@ dependencies {
     //compile 'com.google.firebase:firebase-core:9.0.2'
     compile 'com.google.firebase:firebase-core:9.2.1'
     //compile 'com.google.firebase:firebase-database:9.0.0'
+
+    //push notification
+    compile 'com.google.firebase:firebase-messaging:9.2.1'
+
+    compile 'com.google.android.gms:play-services-location:9.2.1'
+    compile 'com.google.android.gms:play-services-places:9.2.1'
 
 
     //cool effects
