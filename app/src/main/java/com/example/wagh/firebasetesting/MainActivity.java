@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -32,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     TextView login;
 
+
+    ///Ad view test
+
+    AdView adView;
+    AdRequest adRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
         inputPasswordAgain=(EditText)findViewById(R.id.tv3);
         btnRegister=(Button)findViewById(R.id.Register);
         login=(TextView)findViewById(R.id.nextlogin);
+
+
+        ///ad view testing
+
+        adView=(AdView)findViewById(R.id.ad);
+        adRequest=new AdRequest.Builder().addTestDevice("B85C9E3C34F5DDD28AFBBF2D31766D77").build();
+        adView.loadAd(adRequest);
+
+
 
         String Firebase_url="https://fir-test-18c37.firebaseio.com/";
 
